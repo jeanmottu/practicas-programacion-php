@@ -1,1 +1,62 @@
 # practicas-programacion-php
+
+<?php
+
+// Array de partidos de basquetbol
+$partidos = [
+    ["equipo1" => "Lakers", "equipo2" => "Warriors", "puntos1" => 102, "puntos2" => 99],
+    ["equipo1" => "Bulls", "equipo2" => "Celtics", "puntos1" => 95, "puntos2" => 100],
+    ["equipo1" => "Heat", "equipo2" => "Spurs", "puntos1" => 110, "puntos2" => 105]
+];
+// Calcular total de puntos
+$totalPuntos = 0;
+foreach ($partidos as $partido) {
+    $totalPuntos += $partido["puntos1"] + $partido["puntos2"];
+}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabla de Partidos de Basquetbol</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 60%;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+        }
+        th {
+            background-color: #eee;
+        }
+        .total {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<h2>Lista de Partidos de Basquetbol</h2>
+<table>
+    <tr>
+        <th>Equipo 1</th>
+        <th>Equipo 2</th>
+        <th>Puntos Equipo 1</th>
+        <th>Puntos Equipo 2</th>
+    </tr>
+
+    <?php foreach ($partidos as $partido): ?>
+        <tr>
+            <td><?php echo $partido["equipo1"]; ?></td>
+            <td><?php echo $partido["equipo2"]; ?></td>
+            <td><?php echo $partido["puntos1"]; ?></td>
+            <td><?php echo $partido["puntos2"]; ?></td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+<div class="total">
+    Total de Puntos: <?php echo $totalPuntos; ?>
+</div>
+</body>
+</html>
